@@ -14,7 +14,7 @@ namespace GAMECOTUONG
         int Row { get; set; }
         int Col { get; set; }
         bool Trong { get; set; }
-        PictureBoxCustomize Pic { get; set; }
+        Label Pic { get; set; }
         #endregion
 
         #region Methods

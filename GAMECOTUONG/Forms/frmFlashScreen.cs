@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
-    public partial class formFlashScreen : Form
+    public partial class frmFlashScreen : Form
     {
-        public static formChessBoard chessBoard = new formChessBoard();
-        public static frmMenu menu = new frmMenu();
-        public formFlashScreen()
+        public static frmChessBoard chessBoard = new frmChessBoard();
+        public frmFlashScreen()
         {
             InitializeComponent();
         }

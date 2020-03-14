@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
@@ -18,6 +19,7 @@ namespace GAMECOTUONG
         private Knight[] pKnight;
         private Rook[] pRook;
         private Pawn[] pPawn;
+        private List<Piece> availablePiece;
         #endregion
 
         #region Properties
@@ -31,6 +33,7 @@ namespace GAMECOTUONG
         public ECons.Color Color { get => color; set => color = value; }
         public int Point { get => point; set => point = value; }
         public string PlayerName { get => playerName; set => playerName = value; }
+        public List<Piece> AvailablePiece { get => availablePiece; set => availablePiece = value; }
 
         #endregion
 
@@ -43,139 +46,198 @@ namespace GAMECOTUONG
             #region Tạo các quân cờ
             //Tướng
             PKing = new King(Color);
-            
             //Sỹ
             PAdvisors = new Advisor[2]
             {
-                new Advisor("3", Color),
-                new Advisor("5", Color)
+                new Advisor(3, Color),
+                new Advisor(5, Color)
             };
             //Tượng (Elephent)
             PBiShop = new Bishop[2]
             {
-                new Bishop("2", Color),
-                new Bishop("6", Color)
+                new Bishop(2, Color),
+                new Bishop(6, Color)
             };
             //Mã
             PKnight = new Knight[2]
             {
-                new Knight("1",Color),
-                new Knight("7",Color)
+                new Knight(1,Color),
+                new Knight(7,Color)
                 
             };
             //Xe
             PRook = new Rook[2] 
             {
-                new Rook("0",Color),
-                new Rook("8",Color)
+                new Rook(0,Color),
+                new Rook(8,Color)
             };
             //Pháo
             PCannon = new Cannon[2]
             {
-                new Cannon("1",Color),
-                new Cannon("7",Color)
+                new Cannon(1,Color),
+                new Cannon(7,Color)
             };
             //Chốt
             PPawn = new Pawn[5]
             {
-                new Pawn("0",Color),
-                new Pawn("2",Color),
-                new Pawn("4",Color),
-                new Pawn("6",Color),
-                new Pawn("8",Color),
+                new Pawn(0,Color),
+                new Pawn(2,Color),
+                new Pawn(4,Color),
+                new Pawn(6,Color),
+                new Pawn(8,Color),
             };
             #endregion
         }
         #endregion
 
         #region Methods
-        public void CreateAllMove(  List<ECons.Piece> listPieceName, List<Move> listAllMove)
+        public void CreateAllMove(ref List<Move> listAllMove, int side)
         {
-            listPieceName = null;
-            listAllMove = null;
-            if (PKing.Status == true)
-            {
-                PKing.CreateMoves();
-                listAllMove.AddRange(Piece.listMove);
-                int n = Piece.listMove.Count;
-                for (int i = 0; i < n; i++)
-                    listPieceName.Add(ECons.Piece.King);
-            }
 
-            foreach (var p in pAdvisor)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Advisor);
-                }
-            }
-
-            foreach (var p in PBiShop)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Bishop);
-                }
-            }
-
-            foreach (var p in pKnight)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Knight);
-                }
-            }
-
-            foreach (var p in PRook)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Rook);
-                }
-            }
-
-            foreach (var p in PCannon)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Cannon);
-                }
-            }
-
-            foreach (var p in PPawn)
-            {
-                if (p.Status == true)
-                {
-                    p.CreateMoves();
-                    listAllMove.AddRange(Piece.listMove);
-                    int n = Piece.listMove.Count;
-                    for (int i = 0; i < n; i++)
-                        listPieceName.Add(ECons.Piece.Pawn);
-                }
-            }
-
+            listAllMove = new List<Move>();
+            #region color
+            ECons.Color color = ECons.Color.Unknown;
+            if (side == 0)
+                color = ECons.Color.Red;
+            else if (side == 1)
+                color = ECons.Color.Black;
             #endregion
-
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    Piece p = Game.bBoard[i, j] as Piece;
+                    if (p.Trong == false && p.Color == color)
+                    {
+                        if (p.PieceType == ECons.Piece.King)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(King.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Advisor)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Advisor.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Bishop)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Bishop.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Knight)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Knight.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Rook)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Rook.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Cannon)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Cannon.listMove);
+                        }
+                        else if (p.PieceType == ECons.Piece.Pawn)
+                        {
+                            p.CreateMoves();
+                            listAllMove.AddRange(Pawn.listMove);
+                        }
+                    }
+                }
+            }
         }
+        public void CreateMoves(ref List<Move> listMoves, int side)
+        {
+            listMoves = new List<Move>();
+            if (Game.Players[side].PKing.Status == true)
+            {
+                Game.Players[side].PKing.CreateMoves();
+                listMoves.AddRange(King.listMove);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (Game.Players[side].PAdvisors[i].Status == true)
+                {
+                    Game.Players[side].PAdvisors[0].CreateMoves();
+                    listMoves.AddRange(Advisor.listMove);
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (Game.Players[side].PBiShop[i].Status)
+                {
+                    Game.Players[side].PBiShop[i].CreateMoves();
+                    listMoves.AddRange(Bishop.listMove);
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (Game.Players[side].PCannon[i].Status == true)
+                {
+                    Game.Players[side].PCannon[i].CreateMoves();
+                    listMoves.AddRange(Cannon.listMove);
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (Game.Players[side].PRook[i].Status == true)
+                {
+                    Game.Players[side].PRook[i].CreateMoves();
+                    listMoves.AddRange(Rook.listMove);
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                if (Game.Players[side].PKnight[i].Status == true)
+                {
+                    Game.Players[side].PKnight[i].CreateMoves();
+                    listMoves.AddRange(Knight.listMove);
+                }
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                if (Game.Players[side].PPawn[i].Status == true)
+                {
+                    Game.Players[side].PPawn[i].CreateMoves();
+                    listMoves.AddRange(Pawn.listMove);
+                }
+            }
+        }
+        public static Piece GetPiece(Piece piece)
+        {
+            Piece p = null;
+            int row = piece.Row;
+            int col = piece.Col;
+            int phe = 0;
+            if (piece.Color == ECons.Color.Black) phe = 1;
+            Player player = Game.Players[phe];
+            if (player.PKing.Row == row && player.PKing.Col == col)
+                return player.PKing;
+            for (int i = 0; i < 2; i++)
+                if (player.PAdvisors[i].Status == true && player.PAdvisors[i].Row == row && player.PAdvisors[i].Col == col)
+                    return player.PAdvisors[i];
+            for (int i = 0; i < 2; i++)
+                if (player.PBiShop[i].Status == true && player.PBiShop[i].Row == row && player.PBiShop[i].Col == col)
+                    return player.PBiShop[i];
+            for (int i = 0; i < 2; i++)
+                if (player.PCannon[i].Status == true && player.PCannon[i].Row == row && player.PCannon[i].Col == col)
+                    return player.PCannon[i];
+            for (int i = 0; i < 2; i++)
+                if (player.PKnight[i].Status == true && player.PKnight[i].Row == row && player.PKnight[i].Col == col)
+                    return player.PKnight[i];
+            for (int i = 0; i < 2; i++)
+                if (player.PAdvisors[i].Status == true && player.PAdvisors[i].Row == row && player.PAdvisors[i].Col == col)
+                    return player.PAdvisors[i];
+            for (int i = 0; i < 2; i++)
+                if (player.PRook[i].Status == true && player.PRook[i].Row == row && player.PRook[i].Col == col)
+                    return player.PRook[i];
+            for (int i = 0; i < 5; i++)
+                if (player.PPawn[i].Status == true && player.PPawn[i].Row == row && player.PPawn[i].Col == col)
+                    return player.PPawn[i];
+            return p;
+        }
+        #endregion
     }
 }

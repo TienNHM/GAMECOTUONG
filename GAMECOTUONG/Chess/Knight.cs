@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
     public class Knight : Piece
     {
         #region Constructor
-        public Knight(string strPos, ECons.Color Color) : base(Color)
+        public Knight(int Pos, ECons.Color Color) : base(Color)
         {
-            Pos = strPos;
-            Col = Convert.ToInt16(strPos);
+            this.Pos = Pos/7;
+            Col = Pos;
+            PieceType = ECons.Piece.Knight;
             switch (Color)
             {
                 case ECons.Color.Black:
@@ -24,10 +26,13 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
+            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
-            Game.bBoard[Row, Col].Pos = strPos;
+            Game.bBoard[Row, Col].Pos = Pos;
             Game.bBoard[Row, Col].PieceType = ECons.Piece.Knight;
+            ToolTip = new ToolTip();
+            ToolTip.SetToolTip(Pic, Color + " " + PieceType);
         }
         #endregion
 
@@ -45,7 +50,10 @@ namespace GAMECOTUONG
                     if (BoardControl.CoQuanCheTuong(this, r, c))
                         if (Game.bBoard[this.Row + X[i] / 2, this.Col + Y[i] / 2].Trong == true)
                             if (Game.bBoard[r, c].Status == false)
-                                listMove.Add(new Move(this.Row, this.Col, r, c));
+                            {
+                                int value = Evaluate.GetValuePiece(this, r, c);
+                                listMove.Add(new Move(this, this.Row, this.Col, r, c, value));
+                            }
             }
                 
         }

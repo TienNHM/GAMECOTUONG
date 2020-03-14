@@ -16,7 +16,7 @@ namespace GAMECOTUONG
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new formFlashScreen());
+            Application.Run(new frmFlashScreen());
             
         }
     }

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
     public static class Evaluate
     {
+        #region Static Value
         private static int[,] KingPositionValue =
         {
             { 0, 0, 0,15,20,15, 0, 0, 0 },
@@ -22,7 +24,6 @@ namespace GAMECOTUONG
             { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
             { 0, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
-
         private static int[,] RookPositionValue =
         {
             { 150,160,150,160,150,160,150,160,150 },
@@ -37,7 +38,6 @@ namespace GAMECOTUONG
             { 170,180,170,190,250,190,170,180,170 },
             { 160,170,160,150,150,150,160,170,160 }
         };
-
         private static int[,] AdvisorPositionValue =
         {
              { 0, 0, 0,30, 0,30, 0, 0, 0 },
@@ -52,7 +52,6 @@ namespace GAMECOTUONG
              { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
              { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
         };
-
         private static int[,] BishopPositionValue =
         {
              { 0, 0,30, 0, 0, 0,30, 0, 0 },
@@ -67,7 +66,6 @@ namespace GAMECOTUONG
              { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
              { 0, 0, 0, 0, 0, 0, 0, 0, 0 }
         };
-
         private static int[,] KnightPositionValue =
         {
             { 60, 70, 75, 70, 60, 70, 75, 70, 60 },
@@ -82,7 +80,6 @@ namespace GAMECOTUONG
             { 80,110,125, 90, 70, 90,125,110, 80 },
             { 70, 80, 90, 80, 70, 80, 90, 80, 70 }
         };
-
         private static int[,] PawnPositionValue =
         {
             { 0,0,0,0,0,0,0,0,0 },
@@ -97,7 +94,6 @@ namespace GAMECOTUONG
             { 25,30,40,50,60,50,40,30,25 },
             { 10,10,10,20,25,20,10,10,10 }
         };
-
         private static int[,] CannonPositionValue =
         {
             { 80,90,80,70,60,70,80,90,80 },
@@ -112,36 +108,40 @@ namespace GAMECOTUONG
             { 110,125,100,70,60,70,100,125,110 },
             { 125,130,100,70,60,70,100,130,125 }
         };
+        #endregion
 
-        public static int GetEvaluate(ECons.Piece piece, ECons.Color color, int Row, int Col)
+        #region Methods
+        public static int GetPlayerPoint(int side)
         {
-            int[,] arr = null;
-
-            #region Xác định bảng tham chiếu
-            if (piece is ECons.Piece.King)
-                arr = KingPositionValue;
-            else if (piece is ECons.Piece.Rook)
-                arr = RookPositionValue;
-            else if (piece is ECons.Piece.Advisor)
-                arr = AdvisorPositionValue;
-            else if (piece is ECons.Piece.Bishop)
-                arr = BishopPositionValue;
-            else if (piece is ECons.Piece.Knight)
-                arr = KnightPositionValue;
-            else if (piece is ECons.Piece.Pawn)
-                arr = PawnPositionValue;
-            else if (piece is ECons.Piece.Cannon)
-                arr = CannonPositionValue;
-            #endregion
-
-            if (color == ECons.Color.Black)
-                return arr[Row, Col];
-            else
-                return arr[9 - Row, Col];
+            ECons.Color color = ECons.Color.Black;
+            ECons.Color opColor = ECons.Color.Red;
+            if (side == 0)
+            {
+                color = ECons.Color.Red;
+                opColor = ECons.Color.Black;
+            }
+            int point = 0, opPoint = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    Piece p = Game.bBoard[i, j] as Piece;
+                    if (p.Trong == false && p.Color == color)
+                    {
+                        point += GetEvaluate(p) + Convert.ToInt32(p.PieceType);
+                    }
+                    else if (p.Trong == false && p.Color == opColor)
+                    {
+                        opPoint += GetEvaluate(p) + Convert.ToInt32(p.PieceType); 
+                    }
+                }
+            }
+            
+            return point - opPoint;
         }
-
         public static int GetPoint(Player player)
         {
+
             int result = 0;
             foreach (var p in player.PPawn)
             {
@@ -212,6 +212,42 @@ namespace GAMECOTUONG
             }
             return result;
         }
+        public static int GetEvaluate(Piece piece)
+        {
+            
+            int[,] arr = new int[10, 9];
+
+            #region Tham Chieu
+            if (piece.PieceType == ECons.Piece.King)
+                Array.Copy(KingPositionValue, 0, arr, 0, KingPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Rook)
+                Array.Copy(RookPositionValue, 0, arr, 0, RookPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Advisor)
+                Array.Copy(AdvisorPositionValue, 0, arr, 0, AdvisorPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Bishop)
+                Array.Copy(BishopPositionValue, 0, arr, 0, BishopPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Knight)
+                Array.Copy(KnightPositionValue, 0, arr, 0, KnightPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Pawn)
+                Array.Copy(PawnPositionValue, 0, arr, 0, PawnPositionValue.Length);
+            else if (piece.PieceType == ECons.Piece.Cannon)
+                Array.Copy(CannonPositionValue, 0, arr, 0, CannonPositionValue.Length);
+            #endregion
+
+            if (piece.Color == ECons.Color.Black)
+                return arr[piece.Row, piece.Col];
+            return arr[9 - piece.Row, piece.Col];
+        }
+        public static int GetValuePiece(Piece piece, int Row, int Col)
+        {
+            int posValue = GetEvaluate(piece);
+            int staticValue = Convert.ToInt32((ECons.Point)piece.PieceType);
+            int recievedValue = GetEvaluate(Game.bBoard[Row, Col]);
+            if (Game.bBoard[Row, Col].Trong == false)
+                return staticValue + posValue + recievedValue;
+            return posValue;
+        }
+        #endregion
     }
 }
  

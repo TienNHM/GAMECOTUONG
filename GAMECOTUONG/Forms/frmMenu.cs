@@ -12,7 +12,7 @@ namespace GAMECOTUONG
 {
     public partial class frmMenu : Form
     {
-        private static formNewGame newGame = new formNewGame();
+        private static frmNewGame newGame = new frmNewGame();
         public frmMenu()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace GAMECOTUONG
 
         private void btNew_MouseHover(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void btOpen_MouseHover(object sender, EventArgs e)

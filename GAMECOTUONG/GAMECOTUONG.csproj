@@ -12,6 +12,25 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>GAME CO TUONG</ProductName>
+    <PublisherName>FIT-HCMUTE</PublisherName>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,9 +51,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>843860F4707D0C16D5F721B486FCA019DA8D8F6B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GAMECOTUONG_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>yin_yang.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,23 +82,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI.cs" />
-    <Compile Include="Board.cs" />
+    <Compile Include="BoardControl.cs" />
     <Compile Include="Chess\Cannon.cs" />
     <Compile Include="Evaluate.cs" />
-    <Compile Include="Color.cs" />
     <Compile Include="ECons.cs" />
     <Compile Include="Chess\Advisor.cs" />
-    <Compile Include="Forms\formChessBoard.cs">
+    <Compile Include="Forms\frmFlash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\formChessBoard.Designer.cs">
-      <DependentUpon>formChessBoard.cs</DependentUpon>
+    <Compile Include="Forms\frmFlash.Designer.cs">
+      <DependentUpon>frmFlash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\formFlashScreen.cs">
+    <Compile Include="Forms\frmChessBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\formFlashScreen.Designer.cs">
-      <DependentUpon>formFlashScreen.cs</DependentUpon>
+    <Compile Include="Forms\frmChessBoard.Designer.cs">
+      <DependentUpon>frmChessBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFlashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFlashScreen.Designer.cs">
+      <DependentUpon>frmFlashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInfo.Designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMenu.cs">
       <SubType>Form</SubType>
@@ -76,13 +122,13 @@
     <Compile Include="PictureBoxCustomize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IChess.cs" />
+    <Compile Include="Chess\IChess.cs" />
     <Compile Include="Chess\Knight.cs" />
-    <Compile Include="Forms\NewGame.cs">
+    <Compile Include="Forms\frmNewGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\NewGame.Designer.cs">
-      <DependentUpon>NewGame.cs</DependentUpon>
+    <Compile Include="Forms\frmNewGame.Designer.cs">
+      <DependentUpon>frmNewGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Chess\Pawn.cs" />
     <Compile Include="Chess\Pieces.cs" />
@@ -92,29 +138,40 @@
     <Compile Include="Chess\Bishop.cs" />
     <Compile Include="Chess\King.cs" />
     <Compile Include="Chess\Rook.cs" />
-    <EmbeddedResource Include="Forms\formChessBoard.resx">
-      <DependentUpon>formChessBoard.cs</DependentUpon>
+    <Compile Include="Forms\frmOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOption.designer.cs">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmFlash.resx">
+      <DependentUpon>frmFlash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\formFlashScreen.resx">
-      <DependentUpon>formFlashScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmChessBoard.resx">
+      <DependentUpon>frmChessBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFlashScreen.resx">
+      <DependentUpon>frmFlashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\NewGame.resx">
-      <DependentUpon>NewGame.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmNewGame.resx">
+      <DependentUpon>frmNewGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Forms\frmOption.resx">
+      <DependentUpon>frmOption.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
+    <None Include="GAMECOTUONG_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Advisor.datasource" />
     <None Include="Properties\DataSources\Bishop.datasource" />
     <None Include="Properties\DataSources\Board.datasource" />
@@ -139,6 +196,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -293,9 +355,6 @@
     <None Include="Resources\bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bg1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Cancel.png" />
   </ItemGroup>
   <ItemGroup>
@@ -350,13 +409,7 @@
     <None Include="Resources\Del_MouseOver.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DiLai.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\DiLai_MouseOver.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Exit.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Exit_MouseOver.png" />
@@ -413,12 +466,12 @@
     <None Include="Resources\Options_MouseOver.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Play.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Play_MouseOver.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="rules%28VN%29.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\Save.png" />
   </ItemGroup>
   <ItemGroup>
@@ -451,6 +504,63 @@
   <ItemGroup>
     <None Include="Resources\flashbanner1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SpeechLib">
+      <Guid>{C866CA3A-32F7-11D2-9602-00C04F8EE628}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bancotuong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BR_Nhac.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dauhoicham.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\N_G.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Newgame.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\option.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="yin_yang.ico" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

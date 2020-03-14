@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
@@ -9,10 +7,11 @@ namespace GAMECOTUONG
     public class Bishop : Piece
     {
         #region Constructor
-        public Bishop(string strPos, ECons.Color Color) : base(Color)
+        public Bishop(int Pos, ECons.Color Color) : base(Color)
         {
-            Pos = strPos;
-            Col = Convert.ToInt16(strPos);
+            this.Pos = Pos / 6;
+            Col = Pos;
+            PieceType = ECons.Piece.Bishop;
             switch (Color)
             {
                 case ECons.Color.Black:
@@ -25,10 +24,13 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
+            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
-            Game.bBoard[Row, Col].Pos = strPos;
+            Game.bBoard[Row, Col].Pos = Pos;
             Game.bBoard[Row, Col].PieceType = ECons.Piece.Bishop;
+            ToolTip = new ToolTip();
+            ToolTip.SetToolTip(Pic, Color + " " + PieceType);
         }
         #endregion
 
@@ -41,12 +43,12 @@ namespace GAMECOTUONG
                 foreach (int j in dir)
                 {
                     int startRow = 0, endRow = 9;
-                    if (this.Color==ECons.Color.Black)
+                    if (this.Color == ECons.Color.Black)
                     {
                         startRow = 0;
                         endRow = 4;
                     }
-                    else if (this.Color==ECons.Color.Red)
+                    else if (this.Color == ECons.Color.Red)
                     {
                         startRow = 5;
                         endRow = 9;
@@ -58,7 +60,10 @@ namespace GAMECOTUONG
                         if (Game.bBoard[this.Row + i / 2, this.Col + j / 2].Trong == true)
                             if (Game.bBoard[r, c].Trong == true || Game.bBoard[r, c].Color != this.Color)
                                 if (BoardControl.CoQuanCheTuong(this, r, c))
-                                    listMove.Add(new Move(this.Row, this.Col, r, c));
+                                {
+                                    int value = Evaluate.GetValuePiece(this, r, c);
+                                    listMove.Add(new Move(this, this.Row, this.Col, r, c, value));
+                                }
                     }
                 }
         }

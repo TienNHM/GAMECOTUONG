@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
     public class Pawn : Piece
     {
         #region Constructor
-        public Pawn(string strPos, ECons.Color Color) : base(Color)
+        public Pawn(int Pos, ECons.Color Color) : base(Color)
         {
-            Pos = strPos;
-            Col = Convert.ToInt16(strPos);
+            this.Pos = Pos / 2;
+            Col = Pos;
+            PieceType = ECons.Piece.Pawn;
             switch (Color)
             {
                 case ECons.Color.Black:
@@ -24,10 +26,13 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
+            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
-            Game.bBoard[Row, Col].Pos = strPos;
+            Game.bBoard[Row, Col].Pos = Pos;
             Game.bBoard[Row, Col].PieceType = ECons.Piece.Pawn;
+            ToolTip = new ToolTip();
+            ToolTip.SetToolTip(Pic, Color + " " + PieceType);
         }
         #endregion
 
@@ -42,7 +47,10 @@ namespace GAMECOTUONG
                     Piece p = Game.bBoard[this.Row + 1, this.Col];
                     if (p.Trong == true || p.Color != this.Color)
                         if (BoardControl.CoQuanCheTuong(this, this.Row + 1, this.Col))
-                            listMove.Add(new Move(this.Row, this.Col, this.Row + 1, this.Col));
+                        {
+                            int value = Evaluate.GetValuePiece(this, this.Row + 1, this.Col);
+                            listMove.Add(new Move(this, this.Row, this.Col, this.Row + 1, this.Col, value));
+                        }
                 }
                 else if (this.Row >= 5 && this.Row <= 9)
                 {
@@ -52,21 +60,30 @@ namespace GAMECOTUONG
                         p = Game.bBoard[this.Row + 1, this.Col];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row + 1, this.Col))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row + 1, this.Col));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row + 1, this.Col);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row + 1, this.Col, value));
+                            }
                     }
                     if (this.Col - 1 >= 0)
                     {
                         p = Game.bBoard[this.Row, this.Col - 1];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row, this.Col - 1))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row, this.Col - 1));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row, this.Col - 1);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row, this.Col - 1, value));
+                            }
                     }
                     if (this.Col + 1 <= 8)
                     {
                         p = Game.bBoard[this.Row, this.Col + 1];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row, this.Col + 1))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row, this.Col + 1));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row, this.Col + 1);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row, this.Col + 1, value));
+                            }
                     }
                 }
             }
@@ -77,7 +94,10 @@ namespace GAMECOTUONG
                     Piece p = Game.bBoard[this.Row - 1, this.Col];
                     if (p.Trong == true || p.Color != this.Color)
                         if (BoardControl.CoQuanCheTuong(this, this.Row - 1, this.Col))
-                            listMove.Add(new Move(this.Row, this.Col, this.Row - 1, this.Col));
+                        {
+                            int value = Evaluate.GetValuePiece(this, this.Row - 1, this.Col);
+                            listMove.Add(new Move(this, this.Row, this.Col, this.Row - 1, this.Col, value));
+                        }
                 }
                 else if (this.Row>=0 && this.Row <=4)
                 {
@@ -87,21 +107,30 @@ namespace GAMECOTUONG
                         p = Game.bBoard[this.Row - 1, this.Col];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row - 1, this.Col))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row - 1, this.Col));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row - 1, this.Col);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row - 1, this.Col, value));
+                            }
                     }
                     if (this.Col-1>=0)
                     {
                         p = Game.bBoard[this.Row, this.Col - 1];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row, this.Col - 1))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row, this.Col - 1));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row, this.Col - 1);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row, this.Col - 1, value));
+                            }
                     }
                     if (this.Col+1<=8)
                     {
                         p = Game.bBoard[this.Row, this.Col + 1];
                         if (p.Trong == true || p.Color != this.Color)
                             if (BoardControl.CoQuanCheTuong(this, this.Row, this.Col + 1))
-                                listMove.Add(new Move(this.Row, this.Col, this.Row, this.Col + 1));
+                            {
+                                int value = Evaluate.GetValuePiece(this, this.Row, this.Col + 1);
+                                listMove.Add(new Move(this, this.Row, this.Col, this.Row, this.Col + 1, value));
+                            }
                     }
                 }
             }

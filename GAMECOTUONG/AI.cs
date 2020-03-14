@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GAMECOTUONG
 {
@@ -10,14 +11,6 @@ namespace GAMECOTUONG
     {
         #region Fields
         private static int level;
-        private static int oponentPlayer;
-        private static int computerPoint;
-        private static List<ECons.Piece> listPieceName_Man = null;
-        private static List<Move> listAllMove_Man = null;
-        private static List<ECons.Piece> listPieceName_AI = null;
-        private static List<Move> listAllMove_AI = null;
-        private static Piece[,] tmpBoard = null;
-        private static Player[ ] tmpPlayers = null;
         #endregion
 
         #region Properties
@@ -25,73 +18,194 @@ namespace GAMECOTUONG
         #endregion
 
         #region Methods
-        public static void GetHeristicPoint(out ECons.Piece pieceName, int[] move)
+        static string msg = null;
+        static int count = 0;
+        public static Move DoSearch()
         {
-            int depth = 2 * AI.Level;
-            move = null;
-            pieceName = ECons.Piece.Unknown; 
-            tmpBoard = Game.bBoard;
-            tmpPlayers = Game.Players;
-            while (depth >= 0)
+            int depth = 2;
+            List<Move> listAllMove = new List<Move>();
+            Game.Players[1].CreateMoves(ref listAllMove, 1);
+            if (listAllMove.Count == 0)
             {
-                Game.Players[1].CreateAllMove(listPieceName_AI, listAllMove_AI);
-                AISearch(out pieceName, move);
-                Game.Players[0].CreateAllMove(listPieceName_Man, listAllMove_Man);
-                ManSearch();
-                depth--;
+                MessageBox.Show("NULL");
+                return null;
             }
+            Move bestMove = new Move(Int32.MinValue);
+            foreach (var move in listAllMove)
+            {
+                Piece eatenPiece = Game.bBoard[move.ToRow, move.ToCol];
+                //MessageBox.Show(move.Piece.PieceType + " " + move.Piece.Row + " " + move.Piece.Col);
+                BoardControl.PickDown(move);
+                //int value = Evaluate.GetPlayerPoint(1);
+                int value = AlphaBetaSearch(depth, Int32.MinValue, Int32.MaxValue, 1); 
+                msg += value + "\t";
+                if (value > bestMove.Value)
+                {
+                    bestMove = move;
+                    bestMove.Value = value;
+                }
+                BoardControl.PickDown(move.ReverseMove());
+                if (eatenPiece.PieceType != ECons.Piece.Unknown)
+                {
+                    Game.bBoard[eatenPiece.Row, eatenPiece.Col] = eatenPiece;
+                }
+            }
+            //MessageBox.Show(msg); 
+            //MessageBox.Show(count + "..." + bestMove.Value);
+            return bestMove;
+        }
+        public static Move _DoSearch()
+        {
+            int depth = 1;
+            Move bestMove = new Move(Int32.MinValue);
+            List<Move> listAllMove = new List<Move>();
+            Game.Players[1].CreateMoves(ref listAllMove, 1);
+            foreach (var move in listAllMove)
+            {
+                Piece eatenPiece = Game.bBoard[move.ToRow, move.ToCol] as Piece;
+                BoardControl.PickDown(move);
+                move.Value = AlphaBetaSearch(depth, Int32.MinValue, Int32.MaxValue, 0);
+                if (move.Value > bestMove.Value)
+                {
+                    bestMove = move;
+                }
+                BoardControl.PickDown(move.ReverseMove());
+                if (eatenPiece.PieceType != ECons.Piece.Unknown)
+                {
+                    Game.bBoard[eatenPiece.Row, eatenPiece.Col] = eatenPiece;
+                }
+            }
+            return bestMove;
+        }
+        private static int AlphaBetaSearch(int depth, int alpha, int beta, int side)
+        {
+            if (depth == 0)
+            {
+                count++;
+                return Evaluate.GetPlayerPoint(side);
+            }
+            List<Move> listAllMove = new List<Move>();
+            Game.Players[side].CreateMoves(ref listAllMove, side);
+            foreach(var move in listAllMove)
+            {
+                Piece eatenPiece = Game.bBoard[move.ToRow, move.ToCol] as Piece;
+                //MessageBox.Show(Game.bBoard[move.ToRow, move.ToCol].PieceType.ToString());
+                BoardControl.PickDown(move);
+                if (side == 1)
+                    alpha = Math.Max(alpha, AlphaBetaSearch(depth - 1, alpha, beta, 0));
+                else
+                    beta = Math.Min(beta, AlphaBetaSearch(depth - 1, alpha, beta, 1));
+                BoardControl.PickDown(move.ReverseMove());
+                if (eatenPiece.PieceType != ECons.Piece.Unknown)
+                {
+                    Game.bBoard[eatenPiece.Row, eatenPiece.Col] = eatenPiece;
+                    //MessageBox.Show(Game.bBoard[move.ToRow, move.ToCol].PieceType.ToString());
+                }
+            }
+            //if (alpha <= beta)
+                return (side == 1) ? alpha : beta;
+            //return (side == 1) ? Int32.MinValue : Int32.MaxValue;
+        }
+        public static Move _AlphaBetaSearch()
+        {
+            //int depth = 2 * AI.Level;
+            int depth = 2;
+            Move bestMove = new Move(Int32.MinValue);
+            int bestValue = Int32.MinValue;
+            List<Move> listAllMove = new List<Move>();
+            Game.Players[1].CreateAllMove(ref listAllMove, 1);
+            foreach (Move tmp in listAllMove)
+            {
+                int tmpValue = MaxSearch(depth, 1, Int32.MinValue, Int32.MaxValue);
+                if (tmpValue > bestValue)
+                {
+                    bestMove = tmp;
+                    bestValue = tmpValue;
+                }
+            }
+            return bestMove;
         }
         #region Search
-        private static void AISearch(out ECons.Piece pieceName, int[] move)
+        private static int MaxSearch(int depth, int side, int alpha, int beta)
         {
-            int nAI = listAllMove_AI.Count;
-            computerPoint = Evaluate.GetPoint(Game.Players[1]);
-            int pos = 0;
-            pieceName = listPieceName_AI[0];
-            int max = Int32.MinValue;
-            for (int i = 0; i < nAI; i++)
+            List<Move> listAllMove = new List<Move>();
+
+            if (depth == 1)
             {
-                int from = Evaluate.GetEvaluate(listPieceName_AI[i], ECons.Color.Black, listAllMove_AI[i].FromRow, listAllMove_AI[i].FromCol);
-                int to = Evaluate.GetEvaluate(listPieceName_AI[i], ECons.Color.Black, listAllMove_AI[i].ToRow, listAllMove_AI[i].ToCol);
-                if (computerPoint - from + to > max)
-                {
-                    move[0] = listAllMove_AI[i].ToRow;
-                    move[1] = listAllMove_AI[i].ToCol;
-                    pieceName = listPieceName_AI[i];
-                    pos = i;
-                    max = computerPoint - from + to;
-                }
+                return Move.GetBestMove(listAllMove).Value;
             }
-            tmpBoard[listAllMove_AI[pos].FromRow, listAllMove_AI[pos].FromCol].Trong = true;
-            tmpBoard[listAllMove_AI[pos].ToRow, listAllMove_AI[pos].ToCol].Trong = false;
-            listAllMove_AI.RemoveAt(pos);
-            listPieceName_AI.RemoveAt(pos);
-            computerPoint = max;
-        }
-        private static void ManSearch()
-        {
-            int n = listAllMove_Man.Count;
-            oponentPlayer = Evaluate.GetPoint(Game.Players[0]);
-            int pos = 0;
-            int min = Int32.MaxValue;
+
+            int newAlpha = alpha;
+            int newBeta = beta;
+            Move max = new Move(alpha);
+            int n = listAllMove.Count;
+
             for (int i = 0; i < n; i++)
             {
-                int from = Evaluate.GetEvaluate(listPieceName_Man[i], ECons.Color.Red, listAllMove_Man[i].FromRow, listAllMove_Man[i].FromCol);
-                int to = Evaluate.GetEvaluate(listPieceName_Man[i], ECons.Color.Red, listAllMove_Man[i].ToRow, listAllMove_Man[i].ToCol);
-                if (oponentPlayer - from + to < min)
+                //Giả sử chọn nước đi thứ i
+                Move selectedMove = listAllMove[i];
+                BoardControl.PickDown(selectedMove);
+                Game.Players[side].CreateAllMove(ref listAllMove, side);
+                //Đệ quy, duyệt các nút con
+                int newValue = MinSearch(depth - 1, Game.ChangeSide(side), newAlpha, newBeta);
+                //Quay lui
+                BoardControl.PickDown(selectedMove.ReverseMove());
+                if (newValue > newAlpha)
                 {
-                    pos = i;
-                    min = oponentPlayer - from + to;
+                    max.Value = newValue;
+                    newAlpha = newValue;
                 }
+                //Cắt tỉa
+                if (newBeta <= newAlpha)
+                    return max.Value;
             }
-            tmpBoard[listAllMove_Man[pos].FromRow, listAllMove_Man[pos].FromCol].Trong = true;
-            tmpBoard[listAllMove_Man[pos].ToRow, listAllMove_Man[pos].ToCol].Trong = false;
-            listAllMove_Man.RemoveAt(pos);
-            listPieceName_Man.RemoveAt(pos);
-            oponentPlayer = min;
+            return max.Value;
+        }
+        private static int MinSearch(int depth, int side, int alpha, int beta)
+        {
+            List<Move> listAllMove = new List<Move>();
+
+            if (depth == 1)
+            {
+                return Move.GetWorstMove(listAllMove).Value;
+            }
+
+            int newAlpha = alpha;
+            int newBeta = beta;
+            Move min = new Move(beta);
+            int n = listAllMove.Count;
+
+            for (int i = 0; i < n; i++)
+            {
+                //Giả sử chọn nước đi thứ i
+                Move selectedMove = listAllMove[i];
+                BoardControl.PickDown(selectedMove);
+                Game.Players[side].CreateAllMove(ref listAllMove, side);
+                //Đệ quy, duyệt các nút con
+                Move newMove = new Move(Int32.MaxValue);
+                int newValue = MaxSearch(depth - 1, Game.ChangeSide(side), newAlpha, newBeta);
+                //Quay lui
+                BoardControl.PickDown(selectedMove.ReverseMove());
+                if (newValue < newBeta)
+                {
+                    min.Value = newValue;
+                    newBeta = newValue;
+                }
+                //Cắt tỉa
+                if (newBeta <= newAlpha)
+                    return min.Value;
+                
+            }
+            return min.Value;
         }
         #endregion
 
         #endregion
     }
+
+    //Mở đầu: giới thiệu môn học, cá nhân, bla bla....
+    //giải thích chương trình dùng làm gì (mô tả chung chung)
+    //các chức năng (mà chương trình có)
+    //mô tả các chức năng (chương trình chạy ntn, chạy demo: người chơi ntn, người thắng cuộc ntn, người thua cuộc ntn, ...)
+    //những gì đạt được, hiểu được
 }

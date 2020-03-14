@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace GAMECOTUONG
+﻿namespace GAMECOTUONG
 {
     public static class ECons
     {
@@ -14,13 +9,11 @@ namespace GAMECOTUONG
             Black,
             Unknown
         }
-
         public enum Pos
         {
             Left = 61,
             Top = 80
         }
-
         public enum Piece
         {
             King,
@@ -32,7 +25,6 @@ namespace GAMECOTUONG
             Pawn,
             Unknown
         }
-
         public enum Point
         {
             King = 6000,
@@ -43,7 +35,5 @@ namespace GAMECOTUONG
             Cannon = 285,
             Pawn = 30
         }
-
-       
     }
 }

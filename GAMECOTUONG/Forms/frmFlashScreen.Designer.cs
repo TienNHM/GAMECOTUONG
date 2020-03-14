@@ -1,6 +1,6 @@
 ﻿namespace GAMECOTUONG
 {
-    partial class formFlashScreen
+    partial class frmFlashScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -48,8 +48,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "formFlashScreen";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formFlashScreen";
             this.Load += new System.EventHandler(this.formFlashScreen_Load);
             this.ResumeLayout(false);
 

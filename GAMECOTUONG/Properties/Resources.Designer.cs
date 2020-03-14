@@ -63,9 +63,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BatDau {
+        internal static System.Drawing.Bitmap backgroundOptions {
             get {
-                object obj = ResourceManager.GetObject("BatDau", resourceCulture);
+                object obj = ResourceManager.GetObject("backgroundOptions", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BatDau_MouseOver {
+        internal static System.Drawing.Bitmap bancotuong {
             get {
-                object obj = ResourceManager.GetObject("BatDau_MouseOver", resourceCulture);
+                object obj = ResourceManager.GetObject("bancotuong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,16 +86,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap bg {
             get {
                 object obj = ResourceManager.GetObject("bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg1 {
-            get {
-                object obj = ResourceManager.GetObject("bg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,16 +133,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blackBishop_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackBishop_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blackBishop_marked {
             get {
                 object obj = ResourceManager.GetObject("blackBishop_marked", resourceCulture);
@@ -173,16 +153,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blackCannon_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackCannon_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blackCannon_marked {
             get {
                 object obj = ResourceManager.GetObject("blackCannon_marked", resourceCulture);
@@ -196,16 +166,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap blackKing {
             get {
                 object obj = ResourceManager.GetObject("blackKing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blackKing_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackKing_bian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,16 +203,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blackKnight_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackKnight_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blackKnight_marked {
             get {
                 object obj = ResourceManager.GetObject("blackKnight_marked", resourceCulture);
@@ -266,16 +216,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap blackPawn {
             get {
                 object obj = ResourceManager.GetObject("blackPawn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blackPawn_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackPawn_bian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,39 +243,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap blackRook_bian {
-            get {
-                object obj = ResourceManager.GetObject("blackRook_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap blackRook_marked {
             get {
                 object obj = ResourceManager.GetObject("blackRook_marked", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Cancel {
-            get {
-                object obj = ResourceManager.GetObject("Cancel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Cancel_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Cancel_MouseOver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,189 +263,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cCancel {
-            get {
-                object obj = ResourceManager.GetObject("cCancel", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cCancel_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("cCancel_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Chap {
-            get {
-                object obj = ResourceManager.GetObject("Chap", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChapXong {
-            get {
-                object obj = ResourceManager.GetObject("ChapXong", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChapXong_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("ChapXong_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap chessBoard {
             get {
                 object obj = ResourceManager.GetObject("chessBoard", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChieuBi {
-            get {
-                object obj = ResourceManager.GetObject("ChieuBi", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChieuTuong {
-            get {
-                object obj = ResourceManager.GetObject("ChieuTuong", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChiuThua {
-            get {
-                object obj = ResourceManager.GetObject("ChiuThua", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChiuThua_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("ChiuThua_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChoiLai {
-            get {
-                object obj = ResourceManager.GetObject("ChoiLai", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ChoiLai_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("ChoiLai_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Chuot {
-            get {
-                object obj = ResourceManager.GetObject("Chuot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Close {
-            get {
-                object obj = ResourceManager.GetObject("Close", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Close_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Close_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Del {
-            get {
-                object obj = ResourceManager.GetObject("Del", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Del_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Del_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap DiLai {
-            get {
-                object obj = ResourceManager.GetObject("DiLai", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap DiLai_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("DiLai_MouseOver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -553,16 +283,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Exit_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Exit_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap flashbanner {
             get {
                 object obj = ResourceManager.GetObject("flashbanner", resourceCulture);
@@ -573,19 +293,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ketquabg {
+        internal static System.Drawing.Bitmap help {
             get {
-                object obj = ResourceManager.GetObject("Ketquabg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap luu {
-            get {
-                object obj = ResourceManager.GetObject("luu", resourceCulture);
+                object obj = ResourceManager.GetObject("help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -602,9 +312,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap MessBox_bg1 {
+        internal static System.Drawing.Bitmap N_G {
             get {
-                object obj = ResourceManager.GetObject("MessBox_bg1", resourceCulture);
+                object obj = ResourceManager.GetObject("N_G", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -612,9 +322,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mini {
+        internal static System.Drawing.Bitmap Option {
             get {
-                object obj = ResourceManager.GetObject("Mini", resourceCulture);
+                object obj = ResourceManager.GetObject("Option", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -622,139 +332,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mini_MouseOver {
+        internal static System.Drawing.Bitmap play {
             get {
-                object obj = ResourceManager.GetObject("Mini_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Newgame {
-            get {
-                object obj = ResourceManager.GetObject("Newgame", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Newgame_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Newgame_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap NotTurn {
-            get {
-                object obj = ResourceManager.GetObject("NotTurn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ok {
-            get {
-                object obj = ResourceManager.GetObject("Ok", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ok_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Ok_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Open {
-            get {
-                object obj = ResourceManager.GetObject("Open", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Open_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Open_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Openbg {
-            get {
-                object obj = ResourceManager.GetObject("Openbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap OptBg {
-            get {
-                object obj = ResourceManager.GetObject("OptBg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Options {
-            get {
-                object obj = ResourceManager.GetObject("Options", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Options_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Options_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Play {
-            get {
-                object obj = ResourceManager.GetObject("Play", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Play_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Play_MouseOver", resourceCulture);
+                object obj = ResourceManager.GetObject("play", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -765,16 +345,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap redAdvisor {
             get {
                 object obj = ResourceManager.GetObject("redAdvisor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redAdvisor_bian {
-            get {
-                object obj = ResourceManager.GetObject("redAdvisor_bian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -802,16 +372,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap redBishop_bian {
-            get {
-                object obj = ResourceManager.GetObject("redBishop_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap redBishop_marked {
             get {
                 object obj = ResourceManager.GetObject("redBishop_marked", resourceCulture);
@@ -832,16 +392,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap redCannon_bian {
-            get {
-                object obj = ResourceManager.GetObject("redCannon_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap redCannon_marked {
             get {
                 object obj = ResourceManager.GetObject("redCannon_marked", resourceCulture);
@@ -855,16 +405,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap redKing {
             get {
                 object obj = ResourceManager.GetObject("redKing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redKing_bian {
-            get {
-                object obj = ResourceManager.GetObject("redKing_bian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -902,16 +442,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap redKnight_bian {
-            get {
-                object obj = ResourceManager.GetObject("redKnight_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap redKnight_marked {
             get {
                 object obj = ResourceManager.GetObject("redKnight_marked", resourceCulture);
@@ -925,16 +455,6 @@ namespace GAMECOTUONG.Properties {
         internal static System.Drawing.Bitmap redPawn {
             get {
                 object obj = ResourceManager.GetObject("redPawn", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap redPawn_bian {
-            get {
-                object obj = ResourceManager.GetObject("redPawn_bian", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -962,16 +482,6 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap redRook_bian {
-            get {
-                object obj = ResourceManager.GetObject("redRook_bian", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap redRook_marked {
             get {
                 object obj = ResourceManager.GetObject("redRook_marked", resourceCulture);
@@ -982,69 +492,9 @@ namespace GAMECOTUONG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Save {
-            get {
-                object obj = ResourceManager.GetObject("Save", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Save_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Save_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Thoat {
-            get {
-                object obj = ResourceManager.GetObject("Thoat", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Thoat_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Thoat_MouseOver", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Turning {
             get {
                 object obj = ResourceManager.GetObject("Turning", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Undo {
-            get {
-                object obj = ResourceManager.GetObject("Undo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Undo_MouseOver {
-            get {
-                object obj = ResourceManager.GetObject("Undo_MouseOver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
