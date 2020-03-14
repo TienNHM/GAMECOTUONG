@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GAMECOTUONG.formChessBoard" Collapsed="true">
+    <Position X="1" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIAAACAAAAAAAACAAAAGAAAAAIAAAAAAAIAAAAA=</HashCode>
+      <FileName>Forms\formChessBoard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Program" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.King" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\King.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Rook" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Rook.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Bishop" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Bishop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Pawn" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Pawn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Advisor" Collapsed="true">
+    <Position X="9.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Advisor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Cannon" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Cannon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Knight" Collapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chess\Knight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Player" Collapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAMAAMCAAABAgACAAAEAAAAABAEACACBAAgAgAgCAIA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.BoardControl">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAAAAgAAAAAAAACAAAAAAAAgAAI=</HashCode>
+      <FileName>Board.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.ECons" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>ECons.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.formNewGame" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAAAAAABACAQCACEIAAAAAAgAAEQAAAAAA=</HashCode>
+      <FileName>Forms\NewGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Piece">
+    <Position X="7" Y="2" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAUAgACEAAAAgEIAQAACAYCCAhGEghCAAAAQwAAAABA=</HashCode>
+      <FileName>Chess\Pieces.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GAMECOTUONG.Evaluate" Collapsed="true">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAAAQQAAAAACgAAAAAAAAAIABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Evaluate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Game">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAQAAAAAwAAAAAAACAAAAABA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.AI" Collapsed="true">
+    <Position X="1" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAABAAEgAAAAAACAAAABQAAAAAEQAABBCAAAAAAAAAg=</HashCode>
+      <FileName>AI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GAMECOTUONG.Move" Collapsed="true">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEAAAABAAAAAAAAAAAAAAAAAAABIAAAQQIAAEACAAAA=</HashCode>
+      <FileName>Move.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="GAMECOTUONG.IChess">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAEAAAAACAACAAAEAAhAAAAAAgAAAAAA=</HashCode>
+      <FileName>IChess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
