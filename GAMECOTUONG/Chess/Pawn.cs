@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GAMECOTUONG
@@ -26,7 +23,6 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
-            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
             Game.bBoard[Row, Col].Pos = Pos;
@@ -40,7 +36,8 @@ namespace GAMECOTUONG
         public override void CreateMoves()
         {
             listMove = new List<Move>();
-            if (this.Color==ECons.Color.Black)
+            #region Black
+            if (this.Color == ECons.Color.Black)
             {
                 if (this.Row >= 0 && this.Row <= 4)
                 {
@@ -87,9 +84,12 @@ namespace GAMECOTUONG
                     }
                 }
             }
-            else if (this.Color==ECons.Color.Red)
+            #endregion
+
+            #region Red
+            else if (this.Color == ECons.Color.Red)
             {
-                if (this.Row>=5 && this.Row<=9)
+                if (this.Row >= 5 && this.Row <= 9)
                 {
                     Piece p = Game.bBoard[this.Row - 1, this.Col];
                     if (p.Trong == true || p.Color != this.Color)
@@ -99,10 +99,10 @@ namespace GAMECOTUONG
                             listMove.Add(new Move(this, this.Row, this.Col, this.Row - 1, this.Col, value));
                         }
                 }
-                else if (this.Row>=0 && this.Row <=4)
+                else if (this.Row >= 0 && this.Row <= 4)
                 {
                     Piece p;
-                    if (this.Row-1>=0)
+                    if (this.Row - 1 >= 0)
                     {
                         p = Game.bBoard[this.Row - 1, this.Col];
                         if (p.Trong == true || p.Color != this.Color)
@@ -112,7 +112,7 @@ namespace GAMECOTUONG
                                 listMove.Add(new Move(this, this.Row, this.Col, this.Row - 1, this.Col, value));
                             }
                     }
-                    if (this.Col-1>=0)
+                    if (this.Col - 1 >= 0)
                     {
                         p = Game.bBoard[this.Row, this.Col - 1];
                         if (p.Trong == true || p.Color != this.Color)
@@ -122,7 +122,7 @@ namespace GAMECOTUONG
                                 listMove.Add(new Move(this, this.Row, this.Col, this.Row, this.Col - 1, value));
                             }
                     }
-                    if (this.Col+1<=8)
+                    if (this.Col + 1 <= 8)
                     {
                         p = Game.bBoard[this.Row, this.Col + 1];
                         if (p.Trong == true || p.Color != this.Color)
@@ -134,6 +134,7 @@ namespace GAMECOTUONG
                     }
                 }
             }
+            #endregion
         }
         #endregion
     }

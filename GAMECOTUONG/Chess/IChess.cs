@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace GAMECOTUONG
@@ -10,7 +7,7 @@ namespace GAMECOTUONG
     {
         #region Properties
         ECons.Piece PieceType { get; set; }
-        ECons.Color Color { get ; set; }
+        ECons.Color Color { get; set; }
         int Row { get; set; }
         int Col { get; set; }
         bool Trong { get; set; }

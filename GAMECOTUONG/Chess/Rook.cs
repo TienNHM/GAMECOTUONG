@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GAMECOTUONG
@@ -12,7 +9,7 @@ namespace GAMECOTUONG
         #region Constructor
         public Rook(int Pos, ECons.Color Color) : base(Color)
         {
-            this.Pos = Pos/8;
+            this.Pos = Pos / 8;
             Col = Pos;
             PieceType = ECons.Piece.Rook;
             switch (Color)
@@ -27,7 +24,6 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
-            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
             Game.bBoard[Row, Col].Pos = Pos;

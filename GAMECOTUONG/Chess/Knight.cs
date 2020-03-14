@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace GAMECOTUONG
@@ -11,7 +8,7 @@ namespace GAMECOTUONG
         #region Constructor
         public Knight(int Pos, ECons.Color Color) : base(Color)
         {
-            this.Pos = Pos/7;
+            this.Pos = Pos / 7;
             Col = Pos;
             PieceType = ECons.Piece.Knight;
             switch (Color)
@@ -26,7 +23,6 @@ namespace GAMECOTUONG
                     break;
             }
             base.InitXY();
-            //Game.bBoard[Row, Col] = this;
             Game.bBoard[Row, Col].Trong = false;
             Game.bBoard[Row, Col].Color = Color;
             Game.bBoard[Row, Col].Pos = Pos;
@@ -55,7 +51,7 @@ namespace GAMECOTUONG
                                 listMove.Add(new Move(this, this.Row, this.Col, r, c, value));
                             }
             }
-                
+
         }
         #endregion
     }

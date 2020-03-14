@@ -229,6 +229,7 @@ namespace GAMECOTUONG
                     }
                 }
             }
+
             #region Turning
             if (Game.phe == 0 && Game.Marked == false)
             {
