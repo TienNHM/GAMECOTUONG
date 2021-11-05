@@ -8,3 +8,6 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/TienNHM/GAMECOTUONG?color=g) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/TienNHM/GAMECOTUONG?color=yellow)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/TienNHM/GAMECOTUONG)
+
+## Contributors
+[![](https://avatars.githubusercontent.com/u/33385777?s=60&v=4)](https://github.com/TienNHM)
