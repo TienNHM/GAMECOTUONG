@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GAMECOTUONG</RootNamespace>
     <AssemblyName>GAMECOTUONG</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -31,6 +31,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,9 +54,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>843860F4707D0C16D5F721B486FCA019DA8D8F6B</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>GAMECOTUONG_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -171,7 +169,6 @@
       <DependentUpon>frmOption.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
-    <None Include="GAMECOTUONG_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\Advisor.datasource" />
     <None Include="Properties\DataSources\Bishop.datasource" />
     <None Include="Properties\DataSources\Board.datasource" />
